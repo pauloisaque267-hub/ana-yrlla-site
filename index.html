@@ -169,7 +169,7 @@ section:not(.hero) h2::after{content:"♥";display:block;font-size:1rem;color:va
 <p>Não somos perfeitos, temos nossas diferenças e nossos dias difíceis, mas meu desejo é continuar escolhendo você, aprendendo com nossos erros e construindo cada vez mais momentos felizes juntos.</p>
 <p>Eu te amo muito, minha menina. E se pudesse voltar naquele 9º ano e viver tudo novamente, escolheria conhecer você, me apaixonar por você e te pedir em namoro no dia 26/11/2024 mil vezes.</p>
 <p>Que essa seja apenas uma pequena parte de uma história que ainda tem muito para acontecer. ❤️</p>
-<p class="sign">Feliz 2 anos, meu amor. 💕<br>Seu namorado</p>
+<p class="sign"><span id="anniversaryGreeting">Obrigado por fazer parte da minha vida. 💕</span><br>Seu namorado</p>
 </div>
 </section>
 <div class="lb" id="lb" hidden><img alt="Foto ampliada"></div>
@@ -187,6 +187,10 @@ if(d<0){mo--;d+=new Date(n.getFullYear(),n.getMonth(),0).getDate()}
 if(mo<0){y--;mo+=12}
 [y,mo,d,h,mi,s].forEach(function(v,i){var e=document.getElementById(ids[i]);if(e.textContent!=v){e.textContent=v;e.classList.remove('pop');void e.offsetWidth;e.classList.add('pop')}});
 document.getElementById('anniversary').textContent=y+' '+(y===1?'ano':'anos')+' escolhendo você';
+var nextAnniversary=new Date(n.getFullYear(),10,26);
+if(n.getMonth()>10||(n.getMonth()===10&&n.getDate()>26))nextAnniversary.setFullYear(n.getFullYear()+1);
+var daysUntil=Math.round((nextAnniversary-new Date(n.getFullYear(),n.getMonth(),n.getDate()))/864e5);
+document.getElementById('anniversaryGreeting').textContent=n.getMonth()===10&&n.getDate()===26?'Feliz '+y+' anos, meu amor. 💕':'Faltam '+daysUntil+' dias para celebrarmos '+(y+1)+' anos juntos. 💕';
 }
 tick();setInterval(tick,1000);
 var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
